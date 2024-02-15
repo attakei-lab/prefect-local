@@ -1,0 +1,15 @@
+# ----
+# Run settings for local worker
+# ----
+[deployments.hello_world]
+flow = 'example:hello_world'
+cron = '*/10 * * * *'
+
+[deployments.long_time]
+flow = 'example:long_time'
+cron = '*/10 * * * *'
+
+[deployments.long_long_time]
+flow = 'example:long_time'
+cron = '*/10 * * * *'
+parameters = {counter = 600}

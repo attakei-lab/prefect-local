@@ -1,0 +1,31 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile
+    ports:
+      - '4200:4200'
+    volumes:
+      - type: bind
+        source: ./var/
+        target: /var/opt/prefect
+    environment:
+      PREFECT_SERVER_API_HOST: '0.0.0.0'
+      PREFECT_API_DATABASE_CONNECTION_URL: 'sqlite+aiosqlite:////var/opt/prefect/db.sqlite'
+    command: prefect server start
+  runner:
+    build:
+      context: .
+      dockerfile: docker/runner/Dockerfile
+    depends_on:
+      - server
+    volumes:
+      - type: bind
+        source: ./runner
+        target: /opt/prefect-runner
+      - type: bind
+        source: ./runner.toml
+        target: /opt/prefect-runner.toml
+    environment:
+      PREFECT_API_URL: 'http://server:4200/api'
+    command: python /opt/prefect-runner/main.py --conf /opt/prefect-runner.toml

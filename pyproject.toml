@@ -1,0 +1,28 @@
+[project]
+name = "prefect-local"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Kazuya Takei", email = "myself@attakei.net" }
+]
+dependencies = [
+    "prefect==2.14.21",
+    "pydantic-settings~=2.1.0",
+]
+readme = "README.md"
+requires-python = ">= 3.12"
+
+[project.scripts]
+hello = "prefect_local:hello"
+
+[tool.ruff.lint]
+select = ["D", "E", "W"]
+ignore = ["D105", "D107", "D400"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = []
