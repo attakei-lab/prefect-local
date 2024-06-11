@@ -1,0 +1,28 @@
+[project]
+name = "prefect-local"
+version = "0.1.0"
+description = "This is private package that provides features for local runner of Prefect."
+authors = [
+    { name = "Kazuya Takei", email = "myself@attakei.net" }
+]
+dependencies = []
+readme = "README.md"
+requires-python = ">= 3.12"
+license = { text = "Apache-2.0" }
+
+[project.scripts]
+prefect-local-runner = "prefect_local.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/prefect_local"]
