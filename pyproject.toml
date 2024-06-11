@@ -6,8 +6,6 @@ authors = [
     { name = "Kazuya Takei", email = "myself@attakei.net" }
 ]
 dependencies = [
-    "prefect==2.14.21",
-    "pydantic-settings~=2.1.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.12"
@@ -26,3 +24,6 @@ convention = "pep257"
 managed = true
 virtual = true
 dev-dependencies = []
+
+[tool.rye.workspace]
+members = ["packages/*"]
