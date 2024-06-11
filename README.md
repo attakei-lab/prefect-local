@@ -1,3 +1,3 @@
-# Prefect local enviromnent
+# Prefect local environmnent
 
-This is small enviromnent for Prefect using Docker Compose.
+This is small environmnent for Prefect using Docker Compose.
