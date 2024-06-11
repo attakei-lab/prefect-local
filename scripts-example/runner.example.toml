@@ -1,6 +1,8 @@
 # ----
 # Run settings for local worker
 # ----
+scripts_dir = "/app/scripts"
+
 [deployments.hello_world]
 flow = 'example:hello_world'
 cron = '*/10 * * * *'
