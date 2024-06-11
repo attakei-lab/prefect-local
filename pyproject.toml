@@ -26,3 +26,6 @@ convention = "pep257"
 managed = true
 virtual = true
 dev-dependencies = []
+
+[tool.rye.workspace]
+members = ["packages/*"]
